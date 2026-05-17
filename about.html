@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    #page-home { font-family: 'DM Sans', sans-serif; background: #FAFAF8; }
+    h1, h2, h3, .font-serif { font-family: 'Cormorant Garamond', serif; }
+    .hero-bg { background-image: url('https://www.architekt-reiss.de/s/img/emotionheader.gif'); background-size: cover; background-position: center; }
+    .project-overlay { opacity: 0; transition: opacity 0.4s ease; }
+    .project-card:hover .project-overlay { opacity: 1; }
+    .hero-btn-primary {
+      background: #B8A98A;
+      color: #2C3E35;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.08em;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    .hero-btn-primary:hover { background: #F0EBE1; transform: translateY(-1px); }
+    .hero-btn-outline {
+      border: 1px solid rgba(240,235,225,0.55);
+      color: #F0EBE1;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.08em;
+      transition: background 0.3s, border-color 0.3s, transform 0.2s;
+    .hero-btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #F0EBE1; transform: translateY(-1px); }
+    .scroll-line {
+      animation: scrollLine 2s ease-in-out infinite;
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      51% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0.3; }
+  }}}}</style>
+<style>
+    #page-about { font-family: 'DM Sans', sans-serif; background-color: #FAFAF8; color: #1a1a18; }
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em; }
+    .accent-line { width: 40px; height: 2px; background: #B8A98A; display: block; }
+    img { display: block; }
+  </style>
+<style>
+  #page-services { font-family: 'DM Sans', sans-serif; background: #FAFAF8; color: #1a1a18; }
+  h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em; }
+  .accent-line::after { content: ''; display: block; width: 40px; height: 2px; background: #B8A98A; margin-top: 20px; margin-bottom: 24px; }
+  .service-img { filter: sepia(12%) saturate(90%) brightness(0.97); }
+</style>
+<style>
+    #page-contact { font-family: 'DM Sans', sans-serif; background-color: #FAF8F5; }
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em; }
+    .accent-line { width: 2.5rem; height: 2px; background: #B8A98A; display: block; }
+    
+    
+    input, textarea { font-family: 'DM Sans', sans-serif; }
+    ::placeholder { color: #9CA3AF; opacity: 1; }
+  </style>
+<style>* { box-sizing: border-box; } html, body { margin: 0; padding: 0; }</style>
+</head>
+<body>
+
+<nav style="position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(10,10,20,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;">
+
+  <!-- LOGO -->
+  <div style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;">
+    <svg width="200" height="48" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Büro Reiss">
+      <!-- Monogramm-Icon: stilisiertes "R" als architektonisches Element -->
+      <g>
+        <!-- Vertikale Stütze -->
+        <rect x="8" y="10" width="2.5" height="28" fill="#B8A98A"/>
+        <!-- Horizontale Traverse oben -->
+        <rect x="8" y="10" width="16" height="2.5" fill="#B8A98A"/>
+        <!-- Bogen/Schulter des R -->
+        <path d="M10.5 10 Q28 10 28 20 Q28 29 10.5 29" stroke="#B8A98A" stroke-width="2.5" fill="none" stroke-linecap="square"/>
+        <!-- Diagonale Strebe (Bein des R) -->
+        <line x1="18" y1="28.5" x2="30" y2="38" stroke="#B8A98A" stroke-width="2.5" stroke-linecap="square"/>
+        <!-- Innere Querstrebe — architektonische Geste -->
+        <rect x="10.5" y="27" width="14" height="1.5" fill="rgba(184,169,138,0.45)"/>
+      </g>
+
+      <!-- Wortmarke: REISS -->
+      <text
+        x="42"
+        y="30"
+        font-family="Cormorant Garamond, serif"
+        font-size="22"
+        font-weight="600"
+        letter-spacing="5"
+        fill="#FFFFFF"
+      >REISS</text>
+
+      <!-- Subline: ARCHITEKTUR · INGENIEURBÜRO -->
+      <text
+        x="43"
+        y="42"
+        font-family="DM Sans, sans-serif"
+        font-size="6.5"
+        font-weight="400"
+        letter-spacing="2.8"
+        fill="rgba(184,169,138,0.85)"
+      >ARCHITEKTUR · INGENIEURBÜRO</text>
+
+      <!-- Feine Trennlinie zwischen Name und Subline -->
+      <line x1="42" y1="34" x2="194" y2="34" stroke="rgba(184,169,138,0.25)" stroke-width="0.5"/>
+    </svg>
+    <span style="font-size:9px;color:rgba(184,169,138,0.45);letter-spacing:0.5px;margin-top:1px;padding-left:42px;font-family:'DM Sans',sans-serif;">(Entwurf)</span>
+  </div>
+
+  <div style="display:flex;gap:32px;align-items:center;">
+    <a href="index.html" style="color:rgba(255,255,255,0.9);text-decoration:none;font-size:0.875rem;font-weight:500;letter-spacing:0.3px;transition:color 0.2s;">Home</a>
+    <a href="about.html" style="color:rgba(255,255,255,0.9);text-decoration:none;font-size:0.875rem;font-weight:500;letter-spacing:0.3px;transition:color 0.2s;">Über uns</a>
+    <a href="services.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.875rem;font-weight:500;letter-spacing:0.3px;transition:color 0.2s;">Leistungen</a>
+    <a href="contact.html" style="color:white;text-decoration:none;font-size:0.875rem;font-weight:600;background:linear-gradient(135deg,#6366f1,#8b5cf6);padding:8px 20px;border-radius:8px;transition:opacity 0.2s;">Kontakt</a>
+  </div>
+</nav>
+
+<!-- NAV AUTOMATICALLY INSERTED -->
+
+<main>
+
+  <!-- ═══════════════════════════════════════════════
+       1. HERO — PHILOSOPHY STATEMENT
+  ═══════════════════════════════════════════════ -->
+  <section style="background-color:#2C3E35;" class="relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <img src="https://www.architekt-reiss.de/s/cc_images/cache_16065182.jpg?t=1748339911" alt="" class="w-full h-full object-cover">
+    </div>
+    <div class="relative max-w-5xl mx-auto px-6 py-28 md:py-40">
+      <span class="accent-line mb-8"></span>
+      <h1 class=" text-white text-5xl md:text-7xl font-light leading-tight mb-8" style="letter-spacing:0.04em;">
+        Das Büro<br/>
+        <em>Reiss.</em>
+      </h1>
+      <p class="-delay text-lg md:text-xl font-light max-w-xl leading-relaxed" style="color:#E8E0D4;">
+        Kein Showroom. Keine Preisverleihungen. Wir planen, rechnen und bauen fertig — für Menschen, die wissen, dass ein Gebäude vor allem eines sein muss: solide gebaut, verlässlich betreut, ehrlich kalkuliert.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       2. STORY — EDITORIAL NARRATIVE
+  ═══════════════════════════════════════════════ -->
+  <section style="background-color:#F0EBE1;" class="py-24 md:py-36">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-12 gap-0">
+
+        <!-- Left column: image -->
+        <div class="md:col-span-5 md:col-start-1 mb-12 md:mb-0">
+          <div class="relative">
+            <img
+              src="https://www.architekt-reiss.de/s/cc_images/cache_16057000.jpg?t=1747664632"
+              alt="Büro Reiss — Arbeitsalltag"
+          </div>
+        </div>
+
+        <!-- Right column: text -->
+        <div class="md:col-span-6 md:col-start-7 flex flex-col justify-center">
+          <span class="accent-line mb-6"></span>
+          <p class="text-xs font-medium tracking-widest uppercase mb-4" style="color:#B8A98A;">Seit Jahren. Für die Region.</p>
+          <h2 class="serif text-4xl md:text-5xl font-light mb-8 leading-snug" style="color:#2C3E35;">
+            Ein Büro,<br/>das Projekte<br/><em>zu Ende bringt.</em>
+          </h2>
+          <div class="space-y-5 text-base leading-relaxed font-light" style="color:#3a3a36; max-width:460px;">
+            <p>
+              Seit vielen Jahren zählen Unternehmen aus dem Wohnungsbau, der öffentlichen Verwaltung und der Industrie zu unseren Auftraggebern. Nicht weil wir laut auftreten — sondern weil wir liefern.
+            </p>
+            <p>
+              Das Büro Reiss verbindet Architektur und Ingenieurplanung unter einem Dach. Planung, Statik und Bauleitung aus einer Hand bedeutet: ein Ansprechpartner, kürzere Abstimmungswege, weniger Reibungsverluste auf der Baustelle.
+            </p>
+            <p>
+              Was uns unterscheidet: Kompetenz und Kreativität verbunden mit routinierten Abläufen. Wir begleiten Bauvorhaben kostentransparent — von der ersten Skizze bis zur Abnahme.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       3. VALUES — THREE GENUINE VALUES
+  ═══════════════════════════════════════════════ -->
+  <section class="py-24 md:py-36" style="background-color:#FAFAF8;">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="mb-16">
+        <span class="accent-line mb-6"></span>
+        <p class="text-xs font-medium tracking-widest uppercase mb-4" style="color:#B8A98A;">Was uns leitet</p>
+        <h2 class="serif text-4xl md:text-5xl font-light" style="color:#2C3E35;">Drei Grundsätze.<br/><em>Keine Kompromisse.</em></h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-0 border-t" style="border-color:#D4CEC4;">
+
+        <!-- Value 1 -->
+        <div class="border-b md:border-b-0 md:border-r pt-10 pr-0 md:pr-10 pb-10" style="border-color:#D4CEC4;">
+          <div class="mb-6">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="8" width="24" height="16" rx="1" stroke="#2C3E35" stroke-width="1.5" fill="none"/>
+              <line x1="4" y1="13" x2="28" y2="13" stroke="#B8A98A" stroke-width="1.5"/>
+              <line x1="10" y1="8" x2="10" y2="13" stroke="#2C3E35" stroke-width="1.5"/>
+              <line x1="16" y1="8" x2="16" y2="13" stroke="#2C3E35" stroke-width="1.5"/>
+              <line x1="22" y1="8" x2="22" y2="13" stroke="#2C3E35" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="serif text-2xl font-light mb-4" style="color:#2C3E35;">Kostentransparenz</h3>
+          <p class="text-sm leading-relaxed font-light" style="color:#5a5a54;">
+            Wir kalkulieren offen und früh. Keine versteckten Nachträge, keine bösen Überraschungen auf der Schlussrechnung. Unsere Kostenplanung ist Bestandteil jedes Projekts — nicht eine nachgelagerte Pflichtübung.
+          </p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="border-b md:border-b-0 md:border-r pt-10 px-0 md:px-10 pb-10" style="border-color:#D4CEC4;">
+          <div class="mb-6">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="11" stroke="#2C3E35" stroke-width="1.5" fill="none"/>
+              <polyline points="10,16 14,20 22,12" stroke="#B8A98A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="serif text-2xl font-light mb-4" style="color:#2C3E35;">Verlässlichkeit</h3>
+          <p class="text-sm leading-relaxed font-light" style="color:#5a5a54;">
+            Termine werden eingehalten. Zusagen gelten. Wenn es auf der Baustelle eng wird, sind wir da — nicht per E-Mail, sondern persönlich. Das ist kein Versprechen, das ist Arbeitsweise.
+          </p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="pt-10 pl-0 md:pl-10 pb-10">
+          <div class="mb-6">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 4 L28 10 L28 22 L16 28 L4 22 L4 10 Z" stroke="#2C3E35" stroke-width="1.5" fill="none"/>
+              <circle cx="16" cy="16" r="3" stroke="#B8A98A" stroke-width="1.5" fill="none"/>
+              <line x1="16" y1="4" x2="16" y2="13" stroke="#2C3E35" stroke-width="1" stroke-dasharray="2,2"/>
+              <line x1="16" y1="19" x2="16" y2="28" stroke="#2C3E35" stroke-width="1" stroke-dasharray="2,2"/>
+            </svg>
+          </div>
+          <h3 class="serif text-2xl font-light mb-4" style="color:#2C3E35;">Regionalkompetenz</h3>
+          <p class="text-sm leading-relaxed font-light" style="color:#5a5a54;">
+            Wir kennen die örtlichen Behörden, die Bodenverhältnisse, die regionalen Handwerksbetriebe. Dieses Netzwerk ist kein Zufallsprodukt — es ist das Ergebnis von Jahren konsequenter Arbeit vor Ort.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       4. TEAM — FOUNDER FOCUS, PERSONAL
+  ═══════════════════════════════════════════════ -->
+  <section style="background-color:#2C3E35;" class="py-24 md:py-36">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="grid md:grid-cols-12 gap-12 items-center">
+
+        <!-- Image -->
+        <div class="md:col-span-4">
+          <div class="relative">
+            <img
+              src="https://www.architekt-reiss.de/s/cc_images/cache_16065180.JPG?t=1748339922"
+              alt="Büro Reiss — Projekt"
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="md:col-span-7 md:col-start-6">
+          <span class="accent-line mb-6"></span>
+          <p class="text-xs font-medium tracking-widest uppercase mb-6" style="color:#B8A98A;">Die Person dahinter</p>
+          <h2 class="serif text-4xl md:text-5xl font-light text-white mb-8 leading-snug">
+            Architektur und<br/>Ingenieurwesen —<br/><em>in einer Hand.</em>
+          </h2>
+          <div class="space-y-5 text-base leading-relaxed font-light mb-10" style="color:#C8C4BC; max-width:480px;">
+            <p>
+              Als Architekt und Ingenieur begleite ich Bauvorhaben von der ersten Idee bis zur Fertigstellung. Nicht als Schnittstelle zwischen Fachplanern — sondern als derjenige, der beide Disziplinen beherrscht und zusammenführt.
+            </p>
+            <p>
+              Das bedeutet für Sie: Weniger Koordinationsaufwand. Direktere Entscheidungswege. Und ein Ansprechpartner, der die Konsequenzen seiner Planung auf der Baustelle selbst verantwortet.
+            </p>
+            <p>
+              Ich übernehme nur so viele Projekte, wie ich persönlich betreuen kann. Das ist eine bewusste Entscheidung.
+            </p>
+          </div>
+
+          <!-- Credentials bar -->
+          <div class="border-t pt-8 flex flex-wrap gap-8" style="border-color:#3d5448;">
+            <div>
+              <p class="text-xs uppercase tracking-wider mb-1" style="color:#B8A98A;">Qualifikation</p>
+              <p class="text-sm text-white font-light">Dipl.-Ing. Architektur &<br/>Bauingenieurwesen</p>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wider mb-1" style="color:#B8A98A;">Mitgliedschaft</p>
+              <p class="text-sm text-white font-light">Architektenkammer<br/>eingetragenes Mitglied</p>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wider mb-1" style="color:#B8A98A;">Leistungsbild</p>
+              <p class="text-sm text-white font-light">HOAI LP 1–9<br/>vollständig</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       5. FACTS — DISCREET, NO COUNTER GIMMICK
+  ═══════════════════════════════════════════════ -->
+  <section style="background-color:#F0EBE1;" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-b" style="border-color:#C8C0B0;">
+        <div class="py-10 pr-8 md:border-r" style="border-color:#C8C0B0;">
+          <p class="serif text-4xl font-light mb-2" style="color:#2C3E35;">1990er</p>
+          <p class="text-xs uppercase tracking-wider font-medium" style="color:#B8A98A;">Gründungsjahrzehnt</p>
+        </div>
+        <div class="py-10 px-8 md:border-r" style="border-color:#C8C0B0;">
+          <p class="serif text-4xl font-light mb-2" style="color:#2C3E35;">Vollständig</p>
+          <p class="text-xs uppercase tracking-wider font-medium" style="color:#B8A98A;">HOAI Leistungsphasen</p>
+        </div>
+        <div class="py-10 px-8 md:border-r border-t md:border-t-0" style="border-color:#C8C0B0;">
+          <p class="serif text-4xl font-light mb-2" style="color:#2C3E35;">Drei</p>
+          <p class="text-xs uppercase tracking-wider font-medium" style="color:#B8A98A;">Kundensegmente</p>
+        </div>
+        <div class="py-10 pl-8 border-t md:border-t-0" style="border-color:#C8C0B0;">
+          <p class="serif text-4xl font-light mb-2" style="color:#2C3E35;">Eine Hand</p>
+          <p class="text-xs uppercase tracking-wider font-medium" style="color:#B8A98A;">Planung bis Abnahme</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       5b. PROJECT IMAGES — VISUAL DOCUMENT
+  ═══════════════════════════════════════════════ -->
+  <section class="py-24" style="background-color:#FAFAF8;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="mb-12">
+        <span class="accent-line mb-6"></span>
+        <p class="text-xs font-medium tracking-widest uppercase mb-4" style="color:#B8A98A;">Aus der Praxis</p>
+        <h2 class="serif text-3xl md:text-4xl font-light" style="color:#2C3E35;">Was entsteht,<br/><em>bleibt.</em></h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="overflow-hidden" style="aspect-ratio:16/10;">
+          <img
+            src="https://www.architekt-reiss.de/s/cc_images/cache_16065181.JPG?t=1748339901"
+            alt="Realisiertes Projekt — Büro Reiss"
+        <div class="overflow-hidden" style="aspect-ratio:16/10;">
+          <img
+            src="https://www.architekt-reiss.de/s/cc_images/cache_16065182.jpg?t=1748339911"
+            alt="Bauprojekt — Büro Reiss"
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       LOCAL — WHY THIS REGION
+  ═══════════════════════════════════════════════ -->
+  <section style="background-color:#F0EBE1;" class="py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-12 gap-12">
+
+        <div class="md:col-span-5">
+          <span class="accent-line mb-6"></span>
+          <p class="text-xs font-medium tracking-widest uppercase mb-4" style="color:#B8A98A;">Verwurzelung</p>
+          <h2 class="serif text-4xl md:text-5xl font-light mb-0 leading-tight" style="color:#2C3E35;">
+            Die Region<br/>ist kein<br/><em>Marktgebiet.</em>
+          </h2>
+        </div>
+
+        <div class="md:col-span-6 md:col-start-7 flex flex-col justify-center space-y-6 text-base leading-relaxed font-light" style="color:#3a3a36;">
+          <p>
+            Wir sind hier aufgewachsen, haben hier studiert, haben hier unsere ersten Projekte gebaut. Die Kenntnis der Region ist nicht recherchiert — sie ist gelebt.
+          </p>
+          <p>
+            Das betrifft die Baubehörden, deren Verfahren und Eigenheiten wir kennen. Es betrifft die Handwerksbetriebe, mit denen wir seit Jahren verlässlich zusammenarbeiten. Und es betrifft die Bauherren — Privatleute, Kommunen, Betriebe — die wissen, dass wir morgen noch hier sind.
+          </p>
+          <p>
+            Regionale Verankerung ist kein Marketingbegriff. Es ist die Bedingung für die Art von Arbeit, die wir machen wollen.
+          </p>
+
+          <!-- Memberships -->
+          <div class="pt-6 border-t" style="border-color:#C8C0B0;">
+            <p class="text-xs uppercase tracking-wider font-medium mb-5" style="color:#B8A98A;">Mitgliedschaften & Kammern</p>
+            <div class="flex flex-wrap gap-6 items-center">
+
+              <!-- Architektenkammer -->
+              <div class="flex items-center gap-3">
+                <div class="flex-shrink-0">
+                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="34" height="34" rx="2" stroke="#2C3E35" stroke-width="1.5" fill="none"/>
+                    <polygon points="18,6 30,28 6,28" stroke="#2C3E35" stroke-width="1.5" fill="none"/>
+                    <line x1="18" y1="14" x2="18" y2="28" stroke="#B8A98A" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-medium" style="color:#2C3E35;">Architektenkammer</p>
+                  <p class="text-xs font-light" style="color:#8a8a82;">Eingetragenes Mitglied</p>
+                </div>
+              </div>
+
+              <!-- Ingenieurkammer -->
+              <div class="flex items-center gap-3">
+                <div class="flex-shrink-0">
+                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="34" height="34" rx="2" stroke="#2C3E35" stroke-width="1.5" fill="none"/>
+                    <circle cx="18" cy="18" r="9" stroke="#2C3E35" stroke-width="1.5" fill="none"/>
+                    <circle cx="18" cy="18" r="3" fill="#B8A98A"/>
+                    <line x1="18" y1="9" x2="18" y2="12" stroke="#2C3E35" stroke-width="1.5"/>
+                    <line x1="18" y1="24" x2="18" y2="27" stroke="#2C3E35" stroke-width="1.5"/>
+                    <line x1="9" y1="18" x2="12" y2="18" stroke="#2C3E35" stroke-width="1.5"/>
+                    <line x1="24" y1="18" x2="27" y2="18" stroke="#2C3E35" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-medium" style="color:#2C3E35;">Ingenieurkammer</p>
+                  <p class="text-xs font-light" style="color:#8a8a82;">Tragwerksplanung</p>
+                </div>
+              </div>
+
+              <!-- HOAI -->
+              <div class="flex items-center gap-3">
+                <div class="flex-shrink-0">
+                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="34" height="34" rx="2" stroke="#2C3E35" stroke-width="1.5" fill="none"/>
+                    <rect x="8" y="8" width="20" height="20" stroke="#2C3E35" stroke-width="1" fill="none" stroke-dasharray="3,2"/>
+                    <text x="18" y="22" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#B8A98A" font-weight="500">HOAI</text>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-medium" style="color:#2C3E35;">HOAI LP 1–9</p>
+                  <p class="text-xs font-light" style="color:#8a8a82;">Vollständiges Leistungsbild</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section></main></div></div>
+</body>
+</html>

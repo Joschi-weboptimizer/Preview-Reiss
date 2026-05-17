@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    #page-home { font-family: 'DM Sans', sans-serif; background: #FAFAF8; }
+    h1, h2, h3, .font-serif { font-family: 'Cormorant Garamond', serif; }
+    .hero-bg { background-image: url('https://www.architekt-reiss.de/s/img/emotionheader.gif'); background-size: cover; background-position: center; }
+    .project-overlay { opacity: 0; transition: opacity 0.4s ease; }
+    .project-card:hover .project-overlay { opacity: 1; }
+    .hero-btn-primary {
+      background: #B8A98A;
+      color: #2C3E35;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.08em;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    .hero-btn-primary:hover { background: #F0EBE1; transform: translateY(-1px); }
+    .hero-btn-outline {
+      border: 1px solid rgba(240,235,225,0.55);
+      color: #F0EBE1;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.08em;
+      transition: background 0.3s, border-color 0.3s, transform 0.2s;
+    .hero-btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #F0EBE1; transform: translateY(-1px); }
+    .scroll-line {
+      animation: scrollLine 2s ease-in-out infinite;
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      51% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0.3; }
+  }}}}</style>
+<style>
+    #page-about { font-family: 'DM Sans', sans-serif; background-color: #FAFAF8; color: #1a1a18; }
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em; }
+    .accent-line { width: 40px; height: 2px; background: #B8A98A; display: block; }
+    img { display: block; }
+  </style>
+<style>
+  #page-services { font-family: 'DM Sans', sans-serif; background: #FAFAF8; color: #1a1a18; }
+  h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em; }
+  .accent-line::after { content: ''; display: block; width: 40px; height: 2px; background: #B8A98A; margin-top: 20px; margin-bottom: 24px; }
+  .service-img { filter: sepia(12%) saturate(90%) brightness(0.97); }
+</style>
+<style>
+    #page-contact { font-family: 'DM Sans', sans-serif; background-color: #FAF8F5; }
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em; }
+    .accent-line { width: 2.5rem; height: 2px; background: #B8A98A; display: block; }
+    
+    
+    input, textarea { font-family: 'DM Sans', sans-serif; }
+    ::placeholder { color: #9CA3AF; opacity: 1; }
+  </style>
+<style>* { box-sizing: border-box; } html, body { margin: 0; padding: 0; }</style>
+</head>
+<body>
+
+<nav style="position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(10,10,20,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;">
+  <div style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="192" height="40" viewBox="0 0 192 40" fill="none" aria-label="Architekturbüro Reiss Logo-Entwurf">
+      <!-- Monogramm: R -->
+      <rect x="0" y="6" width="2" height="28" fill="#B8A98A"/>
+      <path d="M2 6 H14 Q22 6 22 14 Q22 20 14 21 L22 34" stroke="#B8A98A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="2" y1="20" x2="14" y2="20" stroke="#B8A98A" stroke-width="1.5"/>
+      <!-- Trennlinie -->
+      <line x1="32" y1="8" x2="32" y2="32" stroke="rgba(184,169,138,0.35)" stroke-width="1"/>
+      <!-- Wortmarke: REISS -->
+      <text x="42" y="27" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="600" letter-spacing="4" fill="#FFFFFF">REISS</text>
+      <!-- Unterzeile -->
+      <text x="43" y="37" font-family="'DM Sans', Arial, sans-serif" font-size="7" font-weight="400" letter-spacing="2.5" fill="rgba(184,169,138,0.85)">ARCHITEKTUR &amp; INGENIEURE</text>
+    </svg>
+    <span style="font-size:9px;color:rgba(184,169,138,0.45);letter-spacing:0.5px;line-height:1;margin-top:-2px;padding-left:42px;">(Entwurf)</span>
+  </div>
+  <div style="display:flex;gap:32px;align-items:center;">
+    <a href="index.html" style="color:rgba(255,255,255,0.9);text-decoration:none;font-size:0.875rem;font-weight:500;letter-spacing:0.3px;transition:color 0.2s;">Home</a>
+    <a href="about.html" style="color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.875rem;font-weight:500;letter-spacing:0.3px;transition:color 0.2s;">Über uns</a>
+    <a href="services.html" style="color:rgba(255,255,255,0.9);text-decoration:none;font-size:0.875rem;font-weight:500;letter-spacing:0.3px;transition:color 0.2s;">Leistungen</a>
+    <a href="contact.html" style="color:white;text-decoration:none;font-size:0.875rem;font-weight:600;background:linear-gradient(135deg,#6366f1,#8b5cf6);padding:8px 20px;border-radius:8px;transition:opacity 0.2s;">Kontakt</a>
+  </div>
+</nav>
+
+<!-- NAV AUTOMATICALLY INSERTED -->
+
+<!-- ═══════════════════════════════════════════════
+     1. HERO — Expertise claim
+═══════════════════════════════════════════════ -->
+<section style="background:#2C3E35;" class="relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <img src="https://www.architekt-reiss.de/s/cc_images/cache_16065182.jpg?t=1748339911" alt="" class="w-full h-full object-cover service-img">
+  </div>
+  <!-- Grid overlay pattern -->
+  <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(0deg, #B8A98A 0px, #B8A98A 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #B8A98A 0px, #B8A98A 1px, transparent 1px, transparent 60px);"></div>
+  <div class="relative max-w-6xl mx-auto px-6 py-24 md:py-36">
+    <div class="max-w-xl">
+      <p class="text-sm tracking-widest uppercase mb-6 " style="color:#B8A98A; animation-delay:0.05s;">Leistungen</p>
+      <h1 class="text-white text-5xl md:text-7xl leading-none font-light " style="animation-delay:0.1s;">
+        Planung.<br>
+        Statik.<br>
+        Bauleitung.
+      </h1>
+      <div class="h-px w-16 mt-8 mb-8 " style="background:#B8A98A; animation-delay:0.2s;"></div>
+      <p class="text-lg md:text-xl font-light leading-relaxed " style="color:#d4cfc7; animation-delay:0.25s; max-width:420px;">
+        Drei Disziplinen. Ein Büro. Kein Koordinationsaufwand für Sie — wir bringen Ihr Vorhaben von der ersten Skizze bis zur Abnahme durch.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4 " style="animation-delay:0.35s;">
+        <a href="contact.html" class="inline-block px-8 py-4 text-sm tracking-wide font-medium transition-all duration-200 hover:opacity-80" style="background:#B8A98A; color:#2C3E35;">Leistung anfragen</a>
+        <a href="#leistungen" class="inline-block px-8 py-4 text-sm tracking-wide font-medium border transition-all duration-200 hover:bg-white hover:text-green-900" style="border-color:#ffffff40; color:#ffffff;">Übersicht ansehen</a>
+      </div>
+    </div>
+  </div>
+  <!-- Decorative plan fragment -->
+  <div class="hidden md:block absolute right-0 top-0 bottom-0 w-1/3 opacity-20">
+    <svg viewBox="0 0 400 600" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="40" y="80" width="200" height="140" stroke="#B8A98A" stroke-width="1"/>
+      <rect x="40" y="80" width="90" height="60" stroke="#B8A98A" stroke-width="0.5"/>
+      <rect x="130" y="80" width="110" height="60" stroke="#B8A98A" stroke-width="0.5"/>
+      <rect x="40" y="140" width="200" height="80" stroke="#B8A98A" stroke-width="0.5"/>
+      <line x1="40" y1="220" x2="40" y2="320" stroke="#B8A98A" stroke-width="1"/>
+      <line x1="240" y1="220" x2="240" y2="320" stroke="#B8A98A" stroke-width="1"/>
+      <rect x="40" y="320" width="320" height="180" stroke="#B8A98A" stroke-width="1"/>
+      <line x1="200" y1="320" x2="200" y2="500" stroke="#B8A98A" stroke-width="0.5"/>
+      <line x1="40" y1="420" x2="360" y2="420" stroke="#B8A98A" stroke-width="0.5"/>
+      <circle cx="120" cy="370" r="15" stroke="#B8A98A" stroke-width="0.5"/>
+      <circle cx="280" cy="460" r="10" stroke="#B8A98A" stroke-width="0.5"/>
+      <line x1="60" y1="60" x2="380" y2="60" stroke="#B8A98A" stroke-width="0.5" stroke-dasharray="4 4"/>
+      <line x1="380" y1="60" x2="380" y2="520" stroke="#B8A98A" stroke-width="0.5" stroke-dasharray="4 4"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     2. SERVICES — Varied layout, three core disciplines
+═══════════════════════════════════════════════ -->
+<div id="leistungen">
+
+<!-- ─── 2a. Planung — HOAI LP 1–5 ─── -->
+<section class="py-20 md:py-28" style="background:#FAFAF8;">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <!-- Left: text -->
+      <div class="">
+        <span class="text-xs tracking-widest uppercase font-medium block mb-3" style="color:#B8A98A;">01 — Architekturplanung</span>
+        <h2 class="text-4xl md:text-5xl font-light leading-tight mb-8" style="color:#2C3E35;">Planung<br><em style="color:#B8A98A;">HOAI LP 1–5</em></h2>
+        <p class="text-base leading-relaxed mb-8" style="color:#4a4a46; max-width:440px;">
+          Von der ersten Bedarfsanalyse bis zum genehmigten Baurecht. Wir planen so, dass gebaut werden kann — ohne Nachbesserungsschleifen, mit klarer Kostenverfolgung von Anfang an.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">LP 1 — Grundlagenermittlung</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Bedarfsklärung, Standortanalyse, Aufgabenstellung definieren</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">LP 2 — Vorplanung</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Konzeptentwurf, erste Kostenschätzung, Machbarkeitsnachweis</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">LP 3 — Entwurfsplanung</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Durchgearbeiteter Entwurf, Kostenberechnung, Darstellung für Genehmigung</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">LP 4 — Genehmigungsplanung</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Bauantrag, Abstimmung mit Behörden, vollständige Antragsunterlagen</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">LP 5 — Ausführungsplanung</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Werkpläne, Details, ausführungsreife Zeichnungen für alle Gewerke</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- Right: image staggered -->
+      <div class="relative " style="animation-delay:0.15s;">
+        <div class="relative z-10">
+          <img src="https://www.architekt-reiss.de/s/cc_images/cache_16065180.JPG?t=1748339922" alt="Planungsarbeit Büro Reiss" class="w-full object-cover service-img" style="height:420px;">
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 border z-0" style="border-color:#B8A98A; opacity:0.4;"></div>
+        <div class="absolute top-6 -left-4 z-0">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <rect x="0" y="0" width="80" height="80" fill="none" stroke="#2C3E35" stroke-width="0.5"/>
+            <line x1="0" y1="40" x2="80" y2="40" stroke="#2C3E35" stroke-width="0.5"/>
+            <line x1="40" y1="0" x2="40" y2="80" stroke="#2C3E35" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <!-- Tag -->
+        <div class="absolute bottom-6 left-0 px-5 py-3" style="background:#2C3E35;">
+          <p class="text-xs tracking-widest uppercase" style="color:#B8A98A;">Wohnungsbau · Öffentlich · Industrie</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Divider ─── -->
+<div class="max-w-6xl mx-auto px-6"><div class="h-px" style="background:#e8e4dc;"></div></div>
+
+<!-- ─── 2b. Statik / Tragwerksplanung ─── -->
+<section class="py-20 md:py-28" style="background:#FAFAF8;">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <!-- Left: image (reversed column order on desktop) -->
+      <div class="relative order-2 md:order-1 ">
+        <div style="background:#F0EBE1;" class="p-2">
+          <img src="https://www.architekt-reiss.de/s/cc_images/cache_16065181.JPG?t=1748339901" alt="Statik und Tragwerksplanung" class="w-full object-cover service-img" style="height:380px;">
+        </div>
+        <!-- structural drawing overlay suggestion -->
+        <div class="absolute -top-5 -right-5 opacity-30">
+          <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+            <line x1="10" y1="90" x2="50" y2="10" stroke="#2C3E35" stroke-width="1.5"/>
+            <line x1="50" y1="10" x2="90" y2="90" stroke="#2C3E35" stroke-width="1.5"/>
+            <line x1="10" y1="90" x2="90" y2="90" stroke="#2C3E35" stroke-width="1.5"/>
+            <line x1="30" y1="90" x2="50" y2="50" stroke="#2C3E35" stroke-width="0.75" stroke-dasharray="3 3"/>
+            <line x1="70" y1="90" x2="50" y2="50" stroke="#2C3E35" stroke-width="0.75" stroke-dasharray="3 3"/>
+            <circle cx="50" cy="10" r="3" fill="#B8A98A"/>
+            <circle cx="10" cy="90" r="3" fill="#B8A98A"/>
+            <circle cx="90" cy="90" r="3" fill="#B8A98A"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Right: text -->
+      <div class="order-1 md:order-2 " style="animation-delay:0.15s;">
+        <span class="text-xs tracking-widest uppercase font-medium block mb-3" style="color:#B8A98A;">02 — Tragwerksplanung</span>
+        <h2 class="text-4xl md:text-5xl font-light leading-tight mb-8" style="color:#2C3E35;">Statik &amp;<br><em style="color:#B8A98A;">Ingenieurbau</em></h2>
+        <p class="text-base leading-relaxed mb-8" style="color:#4a4a46; max-width:440px;">
+          Tragwerksplanung ist keine Nebendisziplin — sie entscheidet über Machbarkeit, Kosten und Sicherheit. Im eigenen Büro bearbeitet, nicht fremdvergeben.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">Standsicherheitsnachweise</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Statische Berechnungen nach aktuellen Normen (Eurocode)</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">Gründungsplanung</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Fundamente, Bodenplatten, Pfahlgründungen, Kellerkonstruktionen</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">Massiv- und Stahlbau</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Beton-, Stahl- und Holztragwerke — Neubau und Bestandsertüchtigung</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">Bewehrungspläne</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Ausführungsreife Schal- und Bewehrungszeichnungen</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">Umbau &amp; Sanierung</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Bestandsaufnahme, Schadensanalyse, Ertüchtigungskonzept</p>
+            </div>
+          </li>
+        </ul>
+        <div class="mt-8 p-4 border-l-2" style="border-color:#B8A98A; background:#F0EBE1;">
+          <p class="text-sm" style="color:#4a4a46;"><strong style="color:#2C3E35;">Vorteil:</strong> Statik und Architekturplanung im selben Büro verkürzt Abstimmungswege erheblich — und verhindert Kollisionen zwischen Tragwerk und Grundriss.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Divider ─── -->
+<div class="max-w-6xl mx-auto px-6"><div class="h-px" style="background:#e8e4dc;"></div></div>
+
+<!-- ─── 2c. Bauleitung — HOAI LP 6–9 ─── -->
+<section class="py-20 md:py-28" style="background:#FAFAF8;">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <!-- Left: text -->
+      <div class="">
+        <span class="text-xs tracking-widest uppercase font-medium block mb-3" style="color:#B8A98A;">03 — Objektüberwachung</span>
+        <h2 class="text-4xl md:text-5xl font-light leading-tight mb-8" style="color:#2C3E35;">Bauleitung<br><em style="color:#B8A98A;">HOAI LP 6–9</em></h2>
+        <p class="text-base leading-relaxed mb-8" style="color:#4a4a46; max-width:440px;">
+          Ein Projekt ist erst fertig, wenn es abgenommen ist — nicht wenn der Plan unterschrieben ist. Wir bleiben auf der Baustelle, bis alles stimmt.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">LP 6 — Vorbereitung der Vergabe</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Leistungsverzeichnisse, Ausschreibungsunterlagen, Kostenanschlag</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">LP 7 — Mitwirkung bei der Vergabe</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Angebotsauswertung, Preisspiegel, Vergabevorschlag</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">LP 8 — Objektüberwachung</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Bauleitung vor Ort, Qualitäts- und Terminkontrolle, Mängelprotokoll</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#B8A98A;"></span>
+            <div>
+              <span class="font-medium text-sm" style="color:#2C3E35;">LP 9 — Objektbetreuung</span>
+              <p class="text-sm mt-0.5" style="color:#6b6b66;">Gewährleistungsüberwachung, Mängelbeseitigung, Dokumentation</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- Right: image + stat block -->
+      <div class="relative " style="animation-delay:0.15s;">
+        <img src="https://www.architekt-reiss.de/s/cc_images/cache_16057000.jpg?t=1747664632" alt="Bauleitung Büro Reiss" class="w-full object-cover service-img" style="height:360px;">
+        <div class="grid grid-cols-2 gap-px mt-px" style="background:#e8e4dc;">
+          <div class="py-6 px-6 text-center" style="background:#F0EBE1;">
+            <p class="text-3xl font-light serif" style="color:#2C3E35;">LP 1–9</p>
+            <p class="text-xs tracking-wide uppercase mt-1" style="color:#6b6b66;">Vollständige Betreuung</p>
+          </div>
+          <div class="py-6 px-6 text-center" style="background:#F0EBE1;">
+            <p class="text-3xl font-light serif" style="color:#2C3E35;">1 Büro</p>
+            <p class="text-xs tracking-wide uppercase mt-1" style="color:#6b6b66;">Kein Schnittstellenverlust</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Divider ─── -->
+<div class="max-w-6xl mx-auto px-6"><div class="h-px" style="background:#e8e4dc;"></div></div>
+
+<!-- ─── 2d. Additional industries — Wohnungsbau ─── -->
+<section class="py-20 md:py-24" style="background:#2C3E35;">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="mb-14 ">
+      <span class="text-xs tracking-widest uppercase font-medium block mb-3" style="color:#B8A98A;">Branchen &amp; Projekttypen</span>
+      <h2 class="text-3xl md:text-4xl font-light text-white" style="max-width:500px;">Für wen wir arbeiten — und was wir kennen.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-px" style="background:#3d5548;">
+      <!-- Wohnungsbau -->
+      <div class="p-8 " style="background:#2C3E35; animation-delay:0.05s;">
+        <div class="mb-5">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#B8A98A" stroke-width="1.25">
+            <path d="M4 28V14L16 4l12 10v14H4z"/>
+            <rect x="11" y="18" width="5" height="10"/>
+            <rect x="18" y="14" width="5" height="6"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-light text-white mb-3">Wohnungsbau</h3>
+        <p class="text-sm leading-relaxed" style="color:#a8b3ae;"></div></div></div></div></section>
+</body>
+</html>
